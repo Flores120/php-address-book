@@ -15,6 +15,8 @@
     $address_book[$person3_name] = $person3_address;
     $address_book[$person4_name] = $person4_address;
     $address_book[$person5_name] = $person5_address;
+
+    $message = "Fill out the form!!";
  ?>
 
  <!DOCTYPE html>
@@ -29,7 +31,12 @@
       <ul>
         <?php
             foreach ($address_book as $name => $address) {
-              echo "<li>" . "Name: $name Address: $address" . "</li>";
+              if ($name && $address) {
+                echo "<li>" . "Name: $name Address: $address" . "</li>";
+              }
+              else {
+                echo "<script type='text/javascript'>alert('$message');</script>";
+              }
             }
          ?>
       </ul>
